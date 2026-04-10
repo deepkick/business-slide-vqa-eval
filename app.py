@@ -4,8 +4,17 @@ import json
 from pathlib import Path
 
 import gradio as gr
+import markdown
 
 from eval_models import MODEL_FUNCTIONS, get_available_models, judge_answer
+
+
+def render_markdown(text: str) -> str:
+    """モデル回答テキストをMarkdown→HTMLに変換."""
+    return markdown.markdown(
+        text or "",
+        extensions=["tables", "fenced_code", "nl2br"],
+    )
 
 DATA_DIR = Path(__file__).resolve().parent / "data"
 SUBSET_JSON = DATA_DIR / "vqa_subset.json"
@@ -38,7 +47,7 @@ COLOR_CELL_FG = "#e5e7eb"
 COLOR_MUTED = "#9ca3af"
 COLOR_LINK = "#60a5fa"
 
-# Gradio全体のCSS（リンク色など）
+# Gradio全体のCSS（リンク色 + モデル回答内のMarkdownスタイル）
 CUSTOM_CSS = f"""
 a, .markdown a, .prose a {{
     color: {COLOR_LINK} !important;
@@ -46,6 +55,58 @@ a, .markdown a, .prose a {{
 }}
 a:hover {{
     color: #93c5fd !important;
+}}
+.vlm-answer {{
+    line-height: 1.6;
+}}
+.vlm-answer p {{
+    margin: 0 0 0.6em 0;
+}}
+.vlm-answer p:last-child {{
+    margin-bottom: 0;
+}}
+.vlm-answer h1, .vlm-answer h2, .vlm-answer h3,
+.vlm-answer h4, .vlm-answer h5, .vlm-answer h6 {{
+    color: {COLOR_HEADER_FG};
+    margin: 0.8em 0 0.4em 0;
+}}
+.vlm-answer ul, .vlm-answer ol {{
+    margin: 0.4em 0 0.4em 1.2em;
+    padding-left: 0.8em;
+}}
+.vlm-answer table {{
+    border-collapse: collapse;
+    margin: 0.6em 0;
+}}
+.vlm-answer th {{
+    background: {COLOR_HEADER_BG};
+    color: {COLOR_HEADER_FG};
+    border: 1px solid {COLOR_BORDER};
+    padding: 6px 10px;
+    text-align: left;
+}}
+.vlm-answer td {{
+    border: 1px solid {COLOR_BORDER};
+    padding: 6px 10px;
+    color: {COLOR_CELL_FG};
+}}
+.vlm-answer code {{
+    background: {COLOR_HEADER_BG};
+    color: {COLOR_HEADER_FG};
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}}
+.vlm-answer pre {{
+    background: {COLOR_HEADER_BG};
+    color: {COLOR_HEADER_FG};
+    padding: 10px;
+    border-radius: 6px;
+    overflow-x: auto;
+}}
+.vlm-answer pre code {{
+    background: transparent;
+    padding: 0;
 }}
 """
 
@@ -97,7 +158,7 @@ def run_single_eval(image_type: str, question_label: str, selected_models: list[
                     <span style="color:{COLOR_MUTED}; font-size:0.9em;">{elapsed:.1f}秒</span>
                 </div>
             </div>
-            <p style="margin:0; white-space:pre-wrap; color:{COLOR_CELL_FG};">{model_answer}</p>
+            <div class="vlm-answer" style="color:{COLOR_CELL_FG};">{render_markdown(model_answer)}</div>
         </div>
         """)
 
