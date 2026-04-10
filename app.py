@@ -20,14 +20,34 @@ def load_dataset() -> list[dict]:
 DATASET = load_dataset()
 IMAGE_TYPES = sorted(set(q["image type"] for q in DATASET))
 
+# 白文字が読めるよう、彩度を上げ濃い色に統一
 SCORE_COLORS = {
-    5: "#22c55e",
-    4: "#86efac",
-    3: "#facc15",
-    2: "#fb923c",
-    1: "#ef4444",
-    0: "#9ca3af",
+    5: "#16a34a",  # 濃緑
+    4: "#22c55e",  # 緑
+    3: "#d97706",  # 濃黄/琥珀
+    2: "#ea580c",  # 濃橙
+    1: "#dc2626",  # 濃赤
+    0: "#6b7280",  # グレー
 }
+
+# ダークテーマ用カラーパレット
+COLOR_BORDER = "#4b5563"
+COLOR_HEADER_BG = "#374151"
+COLOR_HEADER_FG = "#f3f4f6"
+COLOR_CELL_FG = "#e5e7eb"
+COLOR_MUTED = "#9ca3af"
+COLOR_LINK = "#60a5fa"
+
+# Gradio全体のCSS（リンク色など）
+CUSTOM_CSS = f"""
+a, .markdown a, .prose a {{
+    color: {COLOR_LINK} !important;
+    text-decoration: underline;
+}}
+a:hover {{
+    color: #93c5fd !important;
+}}
+"""
 
 
 def get_filtered_questions(image_type: str) -> gr.Dropdown:
@@ -67,17 +87,17 @@ def run_single_eval(image_type: str, question_label: str, selected_models: list[
         color = SCORE_COLORS.get(score, "#9ca3af")
 
         results_html_parts.append(f"""
-        <div style="border:1px solid #e5e7eb; border-radius:8px; padding:16px; margin-bottom:12px;">
+        <div style="border:1px solid {COLOR_BORDER}; border-radius:8px; padding:16px; margin-bottom:12px; color:{COLOR_CELL_FG};">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                <h3 style="margin:0; font-size:1.1em;">{model_name}</h3>
+                <h3 style="margin:0; font-size:1.1em; color:{COLOR_HEADER_FG};">{model_name}</h3>
                 <div style="display:flex; gap:12px; align-items:center;">
-                    <span style="background:{color}; color:white; padding:4px 12px; border-radius:12px; font-weight:bold;">
+                    <span style="background:{color}; color:#ffffff; padding:4px 14px; border-radius:12px; font-weight:bold; font-size:0.95em;">
                         スコア: {score}/5
                     </span>
-                    <span style="color:#6b7280; font-size:0.9em;">{elapsed:.1f}秒</span>
+                    <span style="color:{COLOR_MUTED}; font-size:0.9em;">{elapsed:.1f}秒</span>
                 </div>
             </div>
-            <p style="margin:0; white-space:pre-wrap;">{model_answer}</p>
+            <p style="margin:0; white-space:pre-wrap; color:{COLOR_CELL_FG};">{model_answer}</p>
         </div>
         """)
 
@@ -122,17 +142,25 @@ def run_batch_eval(image_type: str, selected_models: list[str], progress=gr.Prog
     if not rows:
         return "<p>データがありません。</p>", "<p></p>"
 
+    th_style = (
+        f"border:1px solid {COLOR_BORDER}; padding:8px; "
+        f"background:{COLOR_HEADER_BG}; color:{COLOR_HEADER_FG}; "
+        "text-align:left; font-weight:bold;"
+    )
+    td_style = (
+        f"border:1px solid {COLOR_BORDER}; padding:6px; color:{COLOR_CELL_FG};"
+    )
+    badge_style_base = (
+        "color:#ffffff; padding:3px 10px; border-radius:8px; font-weight:bold;"
+    )
+
     # 結果テーブルHTML
     headers = list(rows[0].keys())
     table_html = "<table style='width:100%; border-collapse:collapse; font-size:0.85em;'>"
-    table_html += "<tr>" + "".join(
-        f"<th style='border:1px solid #d1d5db; padding:8px; background:#f3f4f6; text-align:left;'>{h}</th>"
-        for h in headers
-    ) + "</tr>"
+    table_html += "<tr>" + "".join(f"<th style='{th_style}'>{h}</th>" for h in headers) + "</tr>"
     for row in rows:
         table_html += "<tr>" + "".join(
-            f"<td style='border:1px solid #d1d5db; padding:6px;'>{row.get(h, '')}</td>"
-            for h in headers
+            f"<td style='{td_style}'>{row.get(h, '')}</td>" for h in headers
         ) + "</tr>"
     table_html += "</table>"
 
@@ -140,51 +168,48 @@ def run_batch_eval(image_type: str, selected_models: list[str], progress=gr.Prog
     summary_parts = []
 
     # モデル別平均スコア
-    summary_parts.append("<h3>モデル別平均スコア</h3>")
+    summary_parts.append(f"<h3 style='color:{COLOR_HEADER_FG};'>モデル別平均スコア</h3>")
     summary_parts.append("<table style='border-collapse:collapse; margin-bottom:16px;'>")
     summary_parts.append(
-        "<tr><th style='border:1px solid #d1d5db; padding:8px; background:#f3f4f6;'>モデル</th>"
-        "<th style='border:1px solid #d1d5db; padding:8px; background:#f3f4f6;'>平均スコア</th>"
-        "<th style='border:1px solid #d1d5db; padding:8px; background:#f3f4f6;'>評価数</th></tr>"
+        f"<tr><th style='{th_style}'>モデル</th>"
+        f"<th style='{th_style}'>平均スコア</th>"
+        f"<th style='{th_style}'>評価数</th></tr>"
     )
     for model_name in selected_models:
         key = f"{model_name} スコア"
         scores = [r[key] for r in rows if key in r and r[key] > 0]
         avg = sum(scores) / len(scores) if scores else 0
-        color = SCORE_COLORS.get(round(avg), "#9ca3af")
+        color = SCORE_COLORS.get(round(avg), COLOR_MUTED)
         summary_parts.append(
-            f"<tr><td style='border:1px solid #d1d5db; padding:8px;'>{model_name}</td>"
-            f"<td style='border:1px solid #d1d5db; padding:8px;'>"
-            f"<span style='background:{color}; color:white; padding:2px 8px; border-radius:8px; font-weight:bold;'>"
-            f"{avg:.2f}</span></td>"
-            f"<td style='border:1px solid #d1d5db; padding:8px;'>{len(scores)}</td></tr>"
+            f"<tr><td style='{td_style}'>{model_name}</td>"
+            f"<td style='{td_style}'>"
+            f"<span style='background:{color}; {badge_style_base}'>{avg:.2f}</span></td>"
+            f"<td style='{td_style}'>{len(scores)}</td></tr>"
         )
     summary_parts.append("</table>")
 
     # 画像タイプ別 × モデル別
-    summary_parts.append("<h3>画像タイプ別 × モデル別 平均スコア</h3>")
+    summary_parts.append(f"<h3 style='color:{COLOR_HEADER_FG};'>画像タイプ別 × モデル別 平均スコア</h3>")
     types_in_results = sorted(set(r["画像タイプ"] for r in rows))
     summary_parts.append("<table style='border-collapse:collapse;'>")
     summary_parts.append(
-        "<tr><th style='border:1px solid #d1d5db; padding:8px; background:#f3f4f6;'>画像タイプ</th>"
-        + "".join(
-            f"<th style='border:1px solid #d1d5db; padding:8px; background:#f3f4f6;'>{m}</th>"
-            for m in selected_models
-        )
+        f"<tr><th style='{th_style}'>画像タイプ</th>"
+        + "".join(f"<th style='{th_style}'>{m}</th>" for m in selected_models)
         + "</tr>"
     )
     for t in types_in_results:
         type_rows = [r for r in rows if r["画像タイプ"] == t]
-        summary_parts.append(f"<tr><td style='border:1px solid #d1d5db; padding:8px; font-weight:bold;'>{t}</td>")
+        summary_parts.append(
+            f"<tr><td style='{td_style} font-weight:bold;'>{t}</td>"
+        )
         for model_name in selected_models:
             key = f"{model_name} スコア"
             scores = [r[key] for r in type_rows if key in r and r[key] > 0]
             avg = sum(scores) / len(scores) if scores else 0
-            color = SCORE_COLORS.get(round(avg), "#9ca3af")
+            color = SCORE_COLORS.get(round(avg), COLOR_MUTED)
             summary_parts.append(
-                f"<td style='border:1px solid #d1d5db; padding:8px; text-align:center;'>"
-                f"<span style='background:{color}; color:white; padding:2px 8px; border-radius:8px;'>"
-                f"{avg:.2f}</span></td>"
+                f"<td style='{td_style} text-align:center;'>"
+                f"<span style='background:{color}; {badge_style_base}'>{avg:.2f}</span></td>"
             )
         summary_parts.append("</tr>")
     summary_parts.append("</table>")
@@ -324,4 +349,4 @@ def build_app():
 
 if __name__ == "__main__":
     app = build_app()
-    app.launch(theme=gr.themes.Soft())
+    app.launch(theme=gr.themes.Soft(), css=CUSTOM_CSS)
