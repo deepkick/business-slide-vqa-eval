@@ -1,0 +1,212 @@
+[
+  {
+    "question_id": 2,
+    "image type": "棒グラフ",
+    "image": "ab601a26e1926768f168fec0699f1a162c43aa2a818b6628dc42c951d5ea3c79_page_012.png",
+    "question": "人口10万人未満の構想区域において、小児入院管理料・新生児集中治療室管理料等の診療実績が最も多いのは何件から何件ですか。",
+    "answer": "月に101〜150件が最も割合が多くなっています。"
+  },
+  {
+    "question_id": 4,
+    "image type": "円グラフ",
+    "image": "c4141102251e1b25b7cc8e9a49101f98d93428da324997539ce68d686623b315_page_006.png",
+    "question": "回答企業のうち、3番目に多い業種は何ですか。",
+    "answer": "電機・電子で13.0%です。"
+  },
+  {
+    "question_id": 7,
+    "image type": "棒グラフ",
+    "image": "c4141102251e1b25b7cc8e9a49101f98d93428da324997539ce68d686623b315_page_045.png",
+    "question": "先進的企業の中で、DXの取り組み分野として2番目に多いものは何ですか。",
+    "answer": "製品開発・研究における仮想空間の活用で69%となっています。"
+  },
+  {
+    "question_id": 8,
+    "image type": "棒グラフ",
+    "image": "c4141102251e1b25b7cc8e9a49101f98d93428da324997539ce68d686623b315_page_046.png",
+    "question": "DXを推進する人材の不足を感じているのは大企業と中堅・中小企業ではどちらが割合が高いですか。",
+    "answer": "大企業では74.5%、中堅・中小企業では77.5%と中堅・中小企業の方が割合が高くなっています。"
+  },
+  {
+    "question_id": 11,
+    "image type": "テキスト",
+    "image": "00b2e78b9a93af7b43521cf3eb38d116721d53727e0595ca598fbc73883a07d9_page_005.png",
+    "question": "給水人口1万人以上5万人未満はどの区分に分類されていますか。",
+    "answer": "中規模-1です。"
+  },
+  {
+    "question_id": 14,
+    "image type": "積み上げ棒グラフ",
+    "image": "00b2e78b9a93af7b43521cf3eb38d116721d53727e0595ca598fbc73883a07d9_page_009.png",
+    "question": "「6. 業務効率化」に対する「あまり期待せず＋期待せず」の回答は何割ですか。",
+    "answer": "6.1%です。"
+  },
+  {
+    "question_id": 15,
+    "image type": "画像",
+    "image": "00b2e78b9a93af7b43521cf3eb38d116721d53727e0595ca598fbc73883a07d9_page_013.png",
+    "question": "アンケート調査において、最も回答の割合が高かった項目はどれですか。",
+    "answer": "具体的な事例を知りたいの87%です。"
+  },
+  {
+    "question_id": 18,
+    "image type": "表",
+    "image": "00b69662121062fe5b93dca3b39018014a0ec4ab152c6862729a3295fc623b51_page_004.png",
+    "question": "リーグ・クラブの運営の主なスポーツコンテンツは何ですか。",
+    "answer": "放映権、スポンサー権、指導・アカデミー、観戦（会場）、代理・マネジメント、ファングッズ、選手です。"
+  },
+  {
+    "question_id": 20,
+    "image type": "表",
+    "image": "00b69662121062fe5b93dca3b39018014a0ec4ab152c6862729a3295fc623b51_page_009.png",
+    "question": "肖像権のスポーツビジネスで特に論点になるケースは何ですか。",
+    "answer": "選手の氏名・肖像などを商品化または団体のPRに利用するケースです。"
+  },
+  {
+    "question_id": 27,
+    "image type": "その他",
+    "image": "00b69662121062fe5b93dca3b39018014a0ec4ab152c6862729a3295fc623b51_page_029.png",
+    "question": "スポーツ団体・民間企業の海外戦略検討のフローについて、全て整備されている場合の海外展開までの道筋を教えてください。",
+    "answer": "経済・当該スポーツの認知度・当該スポーツの優位性に関する基礎調査を実施し、経済の評価、当該スポーツの認知度の評価、当該スポーツの優位性の評価が全て整っていると判断された場合に市場（政治・経済・社会・スポーツ）や展開方法等の戦略の検討を行い、海外展開へと発展します。"
+  },
+  {
+    "question_id": 33,
+    "image type": "円グラフ",
+    "image": "00b7e351aae8dfc242603440082e6a50511f8f3e0bed3f70d1909073bfac091d_page_019.png",
+    "question": "再エネ認知している人のうち、再エネを導入・購入している割合は何%ですか。",
+    "answer": "23％です。"
+  },
+  {
+    "question_id": 38,
+    "image type": "表",
+    "image": "00b7e351aae8dfc242603440082e6a50511f8f3e0bed3f70d1909073bfac091d_page_037.png",
+    "question": "将来の購入・導入層に対するプロモーションの方向性は何ですか。",
+    "answer": "デジタルマーケティングに主軸を置いた非金銭的価値(環境価値・社会貢献)の訴求です。"
+  },
+  {
+    "question_id": 42,
+    "image type": "棒グラフ",
+    "image": "00b7e351aae8dfc242603440082e6a50511f8f3e0bed3f70d1909073bfac091d_page_062.png",
+    "question": "「再生可能エネルギー」を導入した後に不安・不満に感じたことの2位は何ですか。",
+    "answer": "「メンテナンスが面倒」です。"
+  },
+  {
+    "question_id": 64,
+    "image type": "テキスト",
+    "image": "9db5aba6362e23c678065b9387a138655f86bc38af9db481d728a3c7c1079583_page_003.png",
+    "question": "こどもの居場所づくりとはどのようなことですか。",
+    "answer": "さまざまなニーズや特性を持つこども・若者が、身近な地域において、各々のライフステージに応じた居場所を切れ目なく持つことができることです。"
+  },
+  {
+    "question_id": 69,
+    "image type": "表",
+    "image": "3728dff7f1fc9ea22787047837d4dcb9a8057b9ff460ed5e673a285b01db7434_page_014.png",
+    "question": "2020年12月から2021年3月にかけて仕入れ価格が上昇していない業種は何ですか。",
+    "answer": "建設業で、12月の13.9から3月の13.5にかけて減少しています。しかし、先行きは27.0と大幅に上昇しています。"
+  },
+  {
+    "question_id": 75,
+    "image type": "画像",
+    "image": "07e42ca7ac3dec85b5d3463008fbf73b2e9334e1b109bf759b33eb15ed150887_page_012.png",
+    "question": "二人の生徒たちと授業者が見ているシートは同じですか、違いますか。",
+    "answer": "同じです。"
+  },
+  {
+    "question_id": 81,
+    "image type": "円グラフ",
+    "image": "6f1ef0b18d2805426b681946de02f4f6e38661c0b18b251baa4e8c93c7f89b6b_page_010.png",
+    "question": "2017年度の内部通報の内容に関する円グラフで、過半数を占めるのは何ですか。",
+    "answer": "ハラスメント関連で、76%を占めています。"
+  },
+  {
+    "question_id": 92,
+    "image type": "画像",
+    "image": "0a06bbb1009193c096a1b5d15a49e9514c0b245b487a84e2d45c446372e1ddea_page_006.png",
+    "question": "高校生ICT Conferenceにおける高校生の役割はどのようなものですか。",
+    "answer": "大人には知識を提供し、逆に大人からはモラルを提供してもらいます。小・中学生に対しては相談を受けアドバイスをするという役割です。"
+  },
+  {
+    "question_id": 94,
+    "image type": "その他",
+    "image": "0a0b15306ac2e5b6e1bdcac515aa2e6b3257d17cd7366d72f3a77b0a70c43c5c_page_005.png",
+    "question": "「『強化=育成=普及』ピラミッド」で一番下層にあるものは何ですか。",
+    "answer": "「普及」です。"
+  },
+  {
+    "question_id": 106,
+    "image type": "積み上げ棒グラフ",
+    "image": "21ef1416d9b7b05cc37ff05bcca085cc13a0f4c30db2a280a0d50a871cbc0d1e_page_007.png",
+    "question": "無回答の事業所で、「現状のままでよい」と回答したのは何割ですか。",
+    "answer": "15.0%です。"
+  },
+  {
+    "question_id": 126,
+    "image type": "テキスト",
+    "image": "0a3f77c8beb59d5b338311a40d157c782d3132e13537c3da962a7d410878396a_page_008.png",
+    "question": "なぜ政府はサプライチェーンを重複させているのですか。",
+    "answer": "事業者同士が連携して削減に取り組むことで、より多くのCO2を削減できるようにするためです。"
+  },
+  {
+    "question_id": 128,
+    "image type": "その他",
+    "image": "0a3f77c8beb59d5b338311a40d157c782d3132e13537c3da962a7d410878396a_page_019.png",
+    "question": "図の中の緑色は何を示していますか。",
+    "answer": "第１ステップで省エネ・節電に対応（基礎）しています。ISO対応で担当部門を設置します。"
+  },
+  {
+    "question_id": 131,
+    "image type": "テキスト",
+    "image": "0a57b8fdd46e2849932e11f747b95d3d518cbc54138930c0314ac3cf4899a0b0_page_022.png",
+    "question": "生徒はどのように振り返っていますか。",
+    "answer": "誰もが社会的弱者に回ってしまう可能性があり、そのような立場の人に対して社会全体で助けていく仕組みが、誰もが安心して生活するために必要である、と振り返っています。"
+  },
+  {
+    "question_id": 132,
+    "image type": "折れ線グラフ",
+    "image": "0a5e48143aab6a6b1ad0552174bee13756985acfd462fcc21336f815aa4d18af_page_003.png",
+    "question": "実質個人消費は2020年以降どうなっていますか。",
+    "answer": "2020年の初めに一旦下落し、その後上昇傾向です。"
+  },
+  {
+    "question_id": 156,
+    "image type": "画像",
+    "image": "0b1f26e44a5be71c3862c896df0d4e537b5f15e8275a70ba4b1d6039fee0a6d1_page_047.png",
+    "question": "図に書かれている3つのモデルは何ですか。",
+    "answer": "切り出し・再構成モデル、特化モデル、積み上げモデルの3つです。"
+  },
+  {
+    "question_id": 163,
+    "image type": "積み上げ棒グラフ",
+    "image": "0b50258efdc65e150eb4cdacbadc93aff60f686a9ee74ad2515151ff5928e16f_page_014.png",
+    "question": "医療用医薬品世界売り上げ上位300品目の日本上市順位が3番目の割合は何%ですか。",
+    "answer": "67.3％です。"
+  },
+  {
+    "question_id": 175,
+    "image type": "表",
+    "image": "04f681da283c0398d8d26768c260c48b6e18789b7fa0b5a0b1b88982cd72ade4_page_074.png",
+    "question": "SeiriesA〜Bの延べ投資家数はいくらですか。",
+    "answer": "1836です。"
+  },
+  {
+    "question_id": 178,
+    "image type": "折れ線グラフ",
+    "image": "bf5ef39c7b695cf66f3263d191b2e2beea598997816e583619b309cdd4870c69_page_006.png",
+    "question": "林業従事者の若年者率が最も高いのはいつですか。",
+    "answer": "2010年で、18%です。"
+  },
+  {
+    "question_id": 179,
+    "image type": "折れ線グラフ",
+    "image": "bf5ef39c7b695cf66f3263d191b2e2beea598997816e583619b309cdd4870c69_page_021.png",
+    "question": "林業、木材産業における死傷年千人率は、全産業と比較してどのようになっていますか。",
+    "answer": "林業、木材産業とも全産業を上回っています。特に林業の方が値が大きくなっています。"
+  },
+  {
+    "question_id": 218,
+    "image type": "画像",
+    "image": "a4f3bdcbb9a788b27f8020ea93f73fd5b080977156f26992a724d003990c3afc_page_040.png",
+    "question": "売上はどのように計算されますか。",
+    "answer": "月間SMS配信数に1通あたりSMS送信単価をかけたものが売上高となります。"
+  }
+]

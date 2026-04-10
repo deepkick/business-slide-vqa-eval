@@ -1,0 +1,5 @@
+gradio>=5.0
+anthropic
+openai
+python-dotenv
+Pillow
