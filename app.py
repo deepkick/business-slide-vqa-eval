@@ -52,7 +52,7 @@ a:hover {{
 
 def get_filtered_questions(image_type: str) -> gr.Dropdown:
     items = DATASET if image_type == "全て" else [q for q in DATASET if q["image type"] == image_type]
-    choices = [f"Q{q['question_id']}: {q['question'][:20]}..." for q in items]
+    choices = [f"Q{q['question_id']}: {q['question'][:40]}..." for q in items]
     return gr.Dropdown(choices=choices, value=choices[0] if choices else None)
 
 
@@ -245,7 +245,7 @@ def build_app():
                     scale=1,
                 )
                 question_select = gr.Dropdown(
-                    choices=[f"Q{q['question_id']}: {q['question'][:20]}..." for q in DATASET],
+                    choices=[f"Q{q['question_id']}: {q['question'][:40]}..." for q in DATASET],
                     label="問題選択",
                     scale=3,
                 )
