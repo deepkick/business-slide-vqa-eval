@@ -3,3 +3,7 @@ __pycache__/
 *.pyc
 data/images/
 .venv/
+business-slide-vqa-eval_README_interview_prep.md
+business-slide-vqa-eval_README_revised_detailed.md
+business-slide-vqa-eval_README_stockmark_oriented.md
+stockmark_interview_business_slide_vqa_notes.md
